@@ -7,10 +7,14 @@
 
 ; new ram
 
-; not sure this is actually free ram. it seems to automatically get reset to 0 after death.
-!timer_room_minutes = $7fbc00
-!timer_room_seconds = $7fbc02
-!timer_room_frames = $7fbc04
+; not sure this is actually free ram
+!timer_current_room_minutes = $7e7300
+!timer_current_room_seconds = $7e7302
+!timer_current_room_frames = $7e7304
+!timer_previous_room_minutes = $7e7306
+!timer_previous_room_seconds = $7e7308
+!timer_previous_room_frames = $7e730a
+!previous_scene = $7e730c
 
 ; rom
 
