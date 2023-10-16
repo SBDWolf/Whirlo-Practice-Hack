@@ -4,6 +4,10 @@
 org $00cee7
     bra $0b
 
+; skip intro
+org $02b712
+    db $01
+
 ; don't display lives and fragments count (originally updates every frame)
 org $008304
     nop #34
