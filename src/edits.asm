@@ -12,6 +12,10 @@ org $02b712
 org $008304
     nop #34
 
+; don't display game over count hud in password screen
+org $00ee5f
+    nop #33
+
 ; replace various pre-existing assets in the HUD with empty space
 org $1c8a41
     db $40,$20,$40,$20

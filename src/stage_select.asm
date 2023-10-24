@@ -28,7 +28,7 @@ stage_select2:
     and #$1000
     beq +
     ; write stage index
-    lda !stage_selected : sta.b $39
+    lda !stage_selected : asl : tax : lda.l stage_indexes,x : sta.b $39
     ; write #$0000 into the stage data pointer. this makes some other code during the stage select fall back into a default?
     lda #$0000 : sta $3c
     ;asl : tax : lda.l stage_data_pointer_table,x : asl : sta.b $3c
@@ -70,6 +70,13 @@ handle_start_press_part2:
     cmp $38
     rtl 
 
+
+stage_indexes:
+    dw $0001
+    dw $0002
+    dw $0003
+    dw $0004
+    dw $0005
 
 ; stage_data_pointer_table:
 ;     dw $0000

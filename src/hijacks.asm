@@ -27,3 +27,8 @@ org $00fc94
     jsl handle_start_press_part2
     nop 
     nop 
+
+; hijack graphical updates during the password screen
+org $0082f2
+    jsl print_selected_stage
+    nop
