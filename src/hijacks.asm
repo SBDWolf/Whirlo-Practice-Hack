@@ -16,17 +16,6 @@ org $008304
 ;this runs on the password screen
 org password_hijack
     jml stage_select2
-    nop 
-
-;allow password confirmation to handle a start press which should work regardless of cursor position
-org $00f855
-    jsl handle_start_press
-    nop 
-
-org $00fc94
-    jsl handle_start_press_part2
-    nop 
-    nop 
 
 ; hijack graphical updates during the password screen
 org $0082f2

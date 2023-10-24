@@ -16,6 +16,19 @@ org $008304
 org $00ee5f
     nop #33
 
+; don't control the password screen
+org password_hijack
+    nop #4
+    jmp $f867
+
+; force password to be accepted. used by the stage select code
+; org $00f855
+;     ldx #$0016
+;     nop #2
+
+org $00fc9a
+    bra $1c
+
 ; replace various pre-existing assets in the HUD with empty space
 org $1c8a41
     db $40,$20,$40,$20
