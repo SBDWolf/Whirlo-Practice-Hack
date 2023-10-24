@@ -113,17 +113,17 @@ print_selected_stage:
 
 
     phx 
-    lda #$2f04
+    lda #$2da4
     jsr .print_text_string_eng
     plx 
 
     ; multiply by two; japanese names have two row entries, one for the dakuten, one for the main name
     txa : asl : tax 
 
-    lda #$2f24
+    lda #$2dc4
     jsr .print_text_string_jp
     
-    lda #$2f44
+    lda #$2de4
     jsr .print_text_string_jp
 
     .done
@@ -173,6 +173,37 @@ stage_names_eng:
     dw "HAUNTED FOREST 2"
     dw "SANDROS 2       "
     dw "VALLEY OF SIZUS "
+    dw "MT. ALSANDRA 1  "
+    dw "MT. ALSANDRA 2  "
+    dw "MT. ALSANDRA 3  "
+    dw "MT. ALSANDRA 4  "
+    dw "CAULDRA CASTLE 1"
+    dw "GRAMPS DOCK 1   "
+    dw "THE PRINCESS 1  "
+    dw "CATACOMB 1      "
+    dw "CATACOMB 2      "
+    dw "CATACOMB 3      "
+    dw "CATACOMB 4      "
+    dw "CATACOMB 5      "
+    dw "CATACOMB 6      "
+    dw "DRAGON FOREST 1 "
+    dw "TOADSTOOL CAVE 1"
+    dw "TOADSTOOL CAVE 2"
+    dw "TOADSTOOL CAVE 3"
+    dw "TOADSTOOL CAVE 4"
+    dw "TOADSTOOL CAVE 5"
+    dw "THE ANCONDA 1   "
+    dw "SEA OF SIRRAH 1 "
+    dw "SEA OF SIRRAH 2 "
+    dw "PIRATE SHIP 1   "
+    dw "PIRATE SHIP 2   "
+    dw "PIRATE SHIP 3   "
+    dw "PIRATE SHIP 4   "
+    dw "PIRATE SHIP 5   "
+    dw "PIRATE SHIP 6   "
+    dw "PIRATE SHIP 7   "
+    dw "PIRATE SHIP 8   "
+    dw "PIRATE SHIP 9   "
 
 ; the japanese names are contained in jp_stage_names.txt
 ; the make_characters_jp_bin.py script will encode that txt file into characters_jp.bin

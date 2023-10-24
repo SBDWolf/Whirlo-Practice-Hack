@@ -2,10 +2,12 @@
 
 ; existing ram
 
-!current_input_held = $21
-!current_input_pressed = $31
+!current_input_held = $20
+!current_input_pressed = $30
 !rng = $5e
 !current_scene = $60
+; is this a copy of the actual currently loaded scene?
+!current_scene2 = $3e
 
 ; new ram
 
@@ -18,7 +20,7 @@
 !timer_previous_room_frames = $7e730a
 !previous_scene = $7e730c
 !stage_selected = $7e730e
-!pressed_start = $7e7310
+!button_held_timer = $7e7310
 
 ; rom
 
