@@ -3,18 +3,7 @@
 ; every frame
 print_hud_info:
     lda #$2f42
-    sta $2116
-    lda !rng
-    and #$00ff
-    lsr #4
-    ora #$2080
-    sta $2118
-
-    lda !rng
-    and #$000f
-    ora #$2080
-    sta $2118
-
+    jsr print_rng_value
 
 
     lda #$2f47
@@ -126,9 +115,11 @@ print_selected_stage:
     lda #$2de4
     jsr .print_text_string_jp
 
+    lda #$2f04
+    jsr print_rng_value
+
     .done
         rtl
-
 
     .print_text_string_jp:
         ; expects the position to print the string at to be passed into A
@@ -165,6 +156,23 @@ print_selected_stage:
         bne -
 
         rts 
+
+
+print_rng_value:
+    ; expects the position to print the rng at to be passed into A
+    sta $2116
+    lda !rng
+    and #$00ff
+    lsr #4
+    ora #$2080
+    sta $2118
+
+    lda !rng
+    and #$000f
+    ora #$2080
+    sta $2118
+
+    rts 
 
 
 stage_names_eng:
@@ -204,6 +212,12 @@ stage_names_eng:
     dw "PIRATE SHIP 7   "
     dw "PIRATE SHIP 8   "
     dw "PIRATE SHIP 9   "
+    dw "TREE ISLAND 1   "
+    dw "TREE ISLAND 2   "
+    dw "TREE ISLAND 3   "
+    dw "TREE ISLAND 4   "
+    dw "TREE ISLAND 5   "
+    dw "TREE ISLAND 6   "
 
 ; the japanese names are contained in jp_stage_names.txt
 ; the make_characters_jp_bin.py script will encode that txt file into characters_jp.bin

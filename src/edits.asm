@@ -2,8 +2,8 @@
 
 ; remove game over on losing all lives
 org $00cee7
-    ;nop #2
-    bra $0b
+    nop #2
+    ;bra $0b
 
 ; skip intro
 org $02b712
@@ -59,3 +59,13 @@ org $1c8a59
     db $40,$20,$40,$20,$40
 org $1c8a60
     db $40,$47,$20,$40,$20
+
+; copy of those assets for some reason??
+org $1c8c15
+    db $40,$20,$40
+org $1c8c1c
+    db $40,$20,$40,$20
+org $1c8c2d
+    db $40,$20,$40,$20,$3d,$40
+org $1c8c35
+    db $40,$20,$40,$20

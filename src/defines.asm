@@ -20,7 +20,8 @@
 !timer_previous_room_frames = $7e730a
 !previous_scene = $7e730c
 !stage_selected = $7e730e
-!button_held_timer = $7e7310
+!button_held_timer_dpad = $7e7310
+!button_held_timer_shoulder = $7e7312
 
 ; rom
 
