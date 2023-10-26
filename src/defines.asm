@@ -1,5 +1,8 @@
 @include
 
+; constants
+!scene_count = $004c
+
 ; existing ram
 
 !current_input_held = $20
@@ -25,8 +28,6 @@
 
 ; rom
 
-;stage_load = $008c84
-;paused_hijack = $00d73c
 password_hijack = $00f760
 end_of_nmi_hijack = $0083a4
-free_space = $01a000
+free_space = $03cd50

@@ -2,8 +2,8 @@
 
 ; remove game over on losing all lives
 org $00cee7
-    nop #2
-    ;bra $0b
+    ;nop #2
+    bra $0b
 
 ; skip intro
 org $02b712
@@ -21,9 +21,7 @@ org $00ee5f
 org $0082fd
     nop #3
 
-; don't display password graphics
-; org $00ee03
-;     nop #36
+
 
 ; clear password screen graphics by changing the source dma address
 org $00ee0f
@@ -43,10 +41,6 @@ org $00f93a
     nop #2
 
 ; force password to be accepted. used by the stage select code
-; org $00f855
-;     ldx #$0016
-;     nop #2
-
 org $00fc9a
     bra $1c
 
@@ -69,3 +63,14 @@ org $1c8c2d
     db $40,$20,$40,$20,$3d,$40
 org $1c8c35
     db $40,$20,$40,$20
+
+
+
+
+
+
+
+
+; don't display password graphics
+; org $00ee03
+;     nop #36
