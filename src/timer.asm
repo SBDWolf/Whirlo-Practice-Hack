@@ -5,8 +5,11 @@ handle_timer:
     sep #$28 ; set decimal mode and 8 bit mode on A
 
     ; don't run if on title screen
-    lda !current_scene2 : bne +
-    jmp .done
+    lda !current_scene2 : beq ++
+    ; don't run if in a cutscene
+    cmp #$60 : bcs ++
+    bra +
+++  jmp .done
 
     ; if we've changed rooms, reset the timer and transfer its value to the previous room's time
 +   lda !current_scene : cmp !previous_scene : beq .update_timer

@@ -42,11 +42,7 @@ print_hud_info:
         rtl 
 
 print_previous_room_time:
-    lda.b !current_scene
-    cmp #$0088
-    beq .done
-
-    lda $2f27
+    lda #$2f27
     sta $2116
     lda !timer_previous_room_minutes
     ora #$2080

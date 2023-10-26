@@ -9,25 +9,25 @@ org $00cee7
 org $02b712
     db $01
 
-; don't display lives and fragments count (originally updates every frame)
+;don't display lives and fragments count (originally updates every frame)
 org $008304
     nop #34
-
-; don't display game over count hud in password screen
-org $00ee5f
-    nop #33
 
 ; don't display current password tiles
 org $0082fd
     nop #3
 
-
+;don't display game over count hud in password screen
+; NOTE: bugged and messes up cutscenes. a better solution would be to hijack whatever write to $7f0000 and make it write blank space or something
+org $00ee5f
+    nop #33
 
 ; clear password screen graphics by changing the source dma address
+; NOTE: bugged and messes up cutscenes
 org $00ee0f
     lda #$1000
 
-; don't display death counter in password screen
+;don't display death counter in password screen
 org $00f8b9
     nop #105
 
