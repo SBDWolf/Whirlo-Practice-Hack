@@ -1,4 +1,4 @@
-set rom_version=0.1beta
+set rom_version=1.0
 set rom_name=whirlo_prac_v%rom_version%.sfc
 
 IF NOT EXIST rom_output mkdir rom_output
