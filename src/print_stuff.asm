@@ -98,17 +98,17 @@ print_selected_stage:
 
 
     phx 
-    lda #$2da4
+    lda #$2dc4
     jsr .print_text_string_eng
     plx 
 
     ; multiply by two; japanese names have two row entries, one for the dakuten, one for the main name
     txa : asl : tax 
 
-    lda #$2dc4
+    lda #$2de4
     jsr .print_text_string_jp
     
-    lda #$2de4
+    lda #$2e04
     jsr .print_text_string_jp
 
     lda #$2f04

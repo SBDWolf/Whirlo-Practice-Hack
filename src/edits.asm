@@ -17,15 +17,9 @@ org $008304
 org $0082fd
     nop #3
 
-;don't display game over count hud in password screen
-; NOTE: bugged and messes up cutscenes. a better solution would be to hijack whatever write to $7f0000 and make it write blank space or something
-org $00ee5f
-    nop #33
-
-; clear password screen graphics by changing the source dma address
-; NOTE: bugged and messes up cutscenes
-org $00ee0f
-    lda #$1000
+;don't update password screen graphics
+org $00f690
+    nop #3
 
 ;don't display death counter in password screen
 org $00f8b9
@@ -63,14 +57,3 @@ org $1c8c2d
     db $40,$20,$40,$20,$3d,$40
 org $1c8c35
     db $40,$20,$40,$20
-
-
-
-
-
-
-
-
-; don't display password graphics
-; org $00ee03
-;     nop #36

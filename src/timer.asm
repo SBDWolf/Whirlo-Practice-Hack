@@ -4,8 +4,17 @@ handle_timer:
 
     sep #$28 ; set decimal mode and 8 bit mode on A
 
+    ; print previous room time without resetting timer if on post-world password screen (e.g. after beating a boss)...
+    ; ...or if on the cutscene right after the final boss
+    lda !current_scene : cmp #$8a : bne +
+    jmp .print_previous_room
+
++   cmp #$c6 : bne +
+    jmp .print_previous_room
+
     ; don't run if on title screen
-    lda !current_scene2 : beq ++
++   lda !current_scene2 : beq ++
+
     ; don't run if in a cutscene
     cmp #$60 : bcs ++
     bra +
@@ -13,7 +22,6 @@ handle_timer:
 
     ; if we've changed rooms, reset the timer and transfer its value to the previous room's time
 +   lda !current_scene : cmp !previous_scene : beq .update_timer
-
 
     lda !timer_current_room_minutes : sta !timer_previous_room_minutes
     lda !timer_current_room_seconds : sta !timer_previous_room_seconds
@@ -54,3 +62,11 @@ handle_timer:
         inc $52
 
         rtl  
+    
+    .print_previous_room:
+        lda !timer_current_room_minutes : sta !timer_previous_room_minutes
+        lda !timer_current_room_seconds : sta !timer_previous_room_seconds
+        lda !timer_current_room_frames : sta !timer_previous_room_frames
+
+        rep #$28 : jsl print_previous_room_time : sep #$28
+        bra .done
