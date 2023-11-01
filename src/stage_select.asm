@@ -91,13 +91,13 @@ stage_select2:
             and #$0020
             beq +
 
-            ;left
+            ;l
             sep #$20
             lda !rng : sec : sbc #$01 : sta !rng
             rep #$20
             bra ..accept_input_end
 
-            ;right
+            ;r
 +           sep #$20           
             lda !rng : clc : adc #$01 : sta !rng
             rep #$20
